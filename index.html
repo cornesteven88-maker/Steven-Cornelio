@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steven Cornelio — Home & Biodata 3 Slide</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #070b14;
+      color: #f8fafc;
+      min-height: 100vh;
+      padding: 20px 14px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 1020px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Top Bar / Navbar */
+    .topbar {
+      background-color: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .menu-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .menu-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background-color: #1e293b;
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu-btn:hover {
+      background-color: #334155;
+    }
+
+    .menu-btn.active {
+      background-color: #ffffff;
+      color: #0f172a;
+      border-color: #ffffff;
+    }
+
+    /* Home View */
+    .home-view {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .home-view.hidden {
+      display: none;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 55%, #c2410c 135%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      padding: 36px 32px;
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-badge {
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.18);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      background-color: #0f172a;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-title h1 {
+      font-size: 38px;
+      line-height: 1.15;
+    }
+
+    .hero-title p {
+      margin-top: 6px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: bold;
+    }
+
+    .hero-desc {
+      max-width: 780px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .primary-btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: none;
+      background-color: #ffffff;
+      color: #0f172a;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      opacity: 0.92;
+    }
+
+    .secondary-btn {
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(15, 23, 42, 0.45);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .secondary-btn:hover {
+      background-color: rgba(15, 23, 42, 0.75);
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background-color: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #94a3b8;
+    }
+
+    .stat-val {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .stat-note {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .home-modules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .module-card {
+      background-color: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .module-tag {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #38bdf8;
+      letter-spacing: 0.5px;
+    }
+
+    .module-card h2 {
+      font-size: 19px;
+      margin-top: 4px;
+    }
+
+    .module-card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin-top: 6px;
+    }
+
+    .module-list {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      color: #e2e8f0;
+    }
+
+    .module-link {
+      align-self: flex-start;
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .module-link:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Slider / 3-Slide Biodata View */
+    .slider-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .slider-section.hidden {
+      display: none;
+    }
+
+    .slider-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background-color: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+
+    .slide-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .slide-tab {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background-color: #1e293b;
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .slide-tab.active {
+      background-color: #38bdf8;
+      color: #090d16;
+      border-color: #38bdf8;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background-color: #1e293b;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55);
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      transition: transform 0.45s ease;
+      align-items: stretch;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 34px 62px 58px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .slide-1 {
+      background: linear-gradient(135deg, #1d4ed8, #0369a1);
+    }
+
+    .slide-2 {
+      background: linear-gradient(135deg, #4338ca, #7e22ce);
+    }
+
+    .slide-3 {
+      background: linear-gradient(135deg, #0f766e, #047857);
+    }
+
+    .slide-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .slide-num {
+      font-size: 13px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .slide-profile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .slide-profile-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .slide-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      background-color: #0f172a;
+    }
+
+    .slide-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Mini Spotify Widget Card ala Foto Asli */
+    .music-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .music-art {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .music-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .music-artist {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .slide h2 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .slide-sub {
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.88);
+      margin-top: 4px;
+    }
+
+    .slide-lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .box {
+      background-color: rgba(15, 23, 42, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .box-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: bold;
+    }
+
+    .box-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .box-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .box-text {
+      font-size: 13px;
+      line-height: 1.58;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 11px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .timeline-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-list li {
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-list strong {
+      color: #ffffff;
+    }
+
+    .msg-form {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr auto;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .msg-input {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background-color: rgba(15, 23, 42, 0.55);
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .msg-input::placeholder {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .slide-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-light {
+      padding: 10px 18px;
+      border-radius: 9px;
+      border: none;
+      background-color: #ffffff;
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-light:hover {
+      opacity: 0.92;
+    }
+
+    .btn-ghost {
+      padding: 10px 16px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background-color: rgba(15, 23, 42, 0.35);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      background-color: rgba(15, 23, 42, 0.65);
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(15, 23, 42, 0.5);
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .arrow:hover {
+      background-color: rgba(15, 23, 42, 0.82);
+    }
+
+    .arrow.prev {
+      left: 12px;
+    }
+
+    .arrow.next {
+      right: 12px;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #ffffff;
+      transform: scale(1.25);
+    }
+
+    @media (max-width: 920px) {
+      .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .home-modules,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .msg-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .slide {
+        padding: 26px 20px 58px;
+      }
+
+      .hero-card {
+        padding: 24px 20px;
+      }
+
+      .hero-title h1 {
+        font-size: 28px;
+      }
+
+      .slide h2 {
+        font-size: 24px;
+      }
+
+      .quick-stats,
+      .grid-5 {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Menu Navigasi Utama -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <!-- Foto Asli Anda sebagai Logo Mini -->
+          <img src="corne.jpeg" alt="Logo Steven" />
+        </div>
+        <div class="brand-text">
+          <strong>Steven Cornelio</strong>
+          <span>Laki-laki (Cowok) • 16 Tahun • Kelas 11 • SMA Damai</span>
+        </div>
+      </div>
+
+      <nav class="menu-nav" aria-label="Menu utama">
+        <button class="menu-btn active" id="navHome" type="button" onclick="showHome()">Menu Home</button>
+        <button class="menu-btn" id="navSlide0" type="button" onclick="openSlide(0)">Slide 1: Profil & Kisah</button>
+        <button class="menu-btn" id="navSlide1" type="button" onclick="openSlide(1)">Slide 2: Sekolah & Rutinitas</button>
+        <button class="menu-btn" id="navSlide2" type="button" onclick="openSlide(2)">Slide 3: Basket, Kuliner & Kontak</button>
+      </nav>
+    </header>
+
+    <!-- MENU HOME AWAL -->
+    <section class="home-view" id="homeView">
+      <div class="hero-card">
+        <span class="hero-badge">Beranda Utama • Profil Pelajar Cowok</span>
+
+        <div class="hero-top">
+          <div class="hero-avatar" aria-label="Foto profil Steven Cornelio">
+            <!-- Foto Asli Anda di Halaman Utama -->
+            <img src="corne.jpeg" alt="Steven Cornelio" />
+          </div>
+          <div class="hero-title">
+            <h1>Steven Cornelio</h1>
+            <p>Pelajar Cowok • 16 Tahun • Kelas 11 di SMA Damai • Hobi Basket & Kuliner</p>
+          </div>
+        </div>
+
+        <p class="hero-desc">
+          Selamat datang di halaman biodata pribadi saya. Saya adalah pelajar cowok berusia 16 tahun yang saat ini duduk di bangku Kelas 11 di SMA Damai. Sehari-hari saya senang mengisi waktu dengan belajar, mendengarkan musik, bermain basket bersama teman, dan menikmati kuliner favorit seperti nasi goreng. Jelajahi 3 slide di bawah ini untuk melihat profil lengkap saya.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn" type="button" onclick="openSlide(0)">Mulai Jelajah 3 Slide →</button>
+          <button class="secondary-btn" type="button" onclick="openSlide(1)">Lihat Data Sekolah & Rutinitas</button>
+          <button class="secondary-btn" type="button" onclick="openSlide(2)">Buka Basket & Kuliner Nasi Goreng</button>
+        </div>
+      </div>
+
+      <!-- Ringkasan Cepat 4 Kartu -->
+      <div class="quick-stats">
+        <div class="stat-box">
+          <span class="stat-label">Identitas & Gender</span>
+          <span class="stat-val">Steven Cornelio • Cowok</span>
+          <span class="stat-note">Pelajar laki-laki berusia 16 tahun yang aktif dan sportif.</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Pendidikan</span>
+          <span class="stat-val">Kelas 11 • SMA Damai</span>
+          <span class="stat-note">Fokus menyeimbangkan tugas sekolah, proyek, dan kegiatan siswa.</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Hobi Utama</span>
+          <span class="stat-val">Bermain Basket</span>
+          <span class="stat-note">Melatih kekompakan tim, refleks, ketahanan fisik, dan sportivitas.</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Favorit Kuliner</span>
+          <span class="stat-val">Nasi Goreng</span>
+          <span class="stat-note">Menu andalan setelah latihan basket sambil eksplorasi kuliner lokal.</span>
+        </div>
+      </div>
+
+      <!-- 3 Kartu Modul Preview -->
+      <div class="home-modules">
+        <article class="module-card">
+          <div>
+            <span class="module-tag">Slide 01 • Identitas & Karakter</span>
+            <h2>Profil Cowok, Karakter & Prinsip Diri</h2>
+            <p>Mengenal lebih dekat siapa Steven Cornelio, gaya berpikir, nilai yang dijunjung, serta gambaran keseharian di usia 16 tahun.</p>
+            <ul class="module-list">
+              <li>• Perkenalan diri lengkap (Laki-laki / Cowok, 16 tahun)</li>
+              <li>• Karakter: konsisten, sportif, dan mudah beradaptasi</li>
+              <li>• Tujuan jangka pendek & rencana ke depan</li>
+            </ul>
+          </div>
+          <button class="module-link" type="button" onclick="openSlide(0)">Buka Slide 1</button>
+        </article>
+
+        <article class="module-card">
+          <div>
+            <span class="module-tag">Slide 02 • Akademik & Jadwal</span>
+            <h2>SMA Damai, Kelas 11 & Rutinitas</h2>
+            <p>Rangkuman perjalanan belajar di SMA Damai, jadwal harian pelajar, cara mengatur waktu antara kelas dan waktu luang.</p>
+            <ul class="module-list">
+              <li>• Biodata terstruktur (nama, gender, umur, kelas, sekolah)</li>
+              <li>• Alur hari sekolah dari pagi hingga malam</li>
+              <li>• Strategi menjaga semangat belajar</li>
+            </ul>
+          </div>
+          <button class="module-link" type="button" onclick="openSlide(1)">Buka Slide 2</button>
+        </article>
+
+        <article class="module-card">
+          <div>
+            <span class="module-tag">Slide 03 • Gaya Hidup & Kontak</span>
+            <h2>Basket, Nasi Goreng & Info Kontak</h2>
+            <p>Cerita lengkap tentang hobi basket di lapangan, daftar selera nasi goreng & kuliner favorit, serta kontak dan papan pesan.</p>
+            <ul class="module-list">
+              <li>• Dunia basket, latihan, dan semangat tim</li>
+              <li>• Preferensi nasi goreng & berburu kuliner</li>
+              <li>• Informasi kontak & kolom titip pesan</li>
+            </ul>
+          </div>
+          <button class="module-link" type="button" onclick="openSlide(2)">Buka Slide 3</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- AREA 3 SLIDE BIODATA -->
+    <section class="slider-section hidden" id="sliderSection">
+      <div class="slider-toolbar">
+        <div class="slide-tabs" role="tablist" aria-label="Pilih slide">
+          <button class="slide-tab active" id="tab0" type="button" onclick="goToSlide(0)">1. Profil & Karakter</button>
+          <button class="slide-tab" id="tab1" type="button" onclick="goToSlide(1)">2. Sekolah & Rutinitas</button>
+          <button class="slide-tab" id="tab2" type="button" onclick="goToSlide(2)">3. Basket, Kuliner & Kontak</button>
+        </div>
+        <button class="btn-ghost" type="button" onclick="showHome()">← Kembali ke Menu Home</button>
+      </div>
+
+      <div class="slider" aria-roledescription="carousel">
+        <div class="slides" id="slides">
+          <!-- SLIDE 1 -->
+          <section class="slide slide-1">
+            <div class="slide-head">
+              <span class="badge">Slide 1 dari 3 • Profil & Kepribadian</span>
+              <span class="slide-num">01 / 03</span>
+            </div>
+
+            <div class="slide-profile-row">
+              <div class="slide-profile-left">
+                <div class="slide-avatar" aria-label="Foto profil Steven Cornelio">
+                  <img src="corne.jpeg" alt="Steven Cornelio" />
+                </div>
+                <div>
+                  <h2>Halo, Saya Steven Cornelio</h2>
+                  <p class="slide-sub">Laki-laki (Cowok) • 16 Tahun • Kelas 11 SMA Damai</p>
+                </div>
+              </div>
+
+              <!-- Widget Musik Spotify (Menyesuaikan dengan tangkapan layar Anda) -->
+              <div class="music-card">
+                <img class="music-art" src="https://i.scdn.co/image/ab67616d0000b273d2fbc70b6540c72833077e69" alt="Album Art The Shade" />
+                <div class="music-info">
+                  <span class="music-title">THE SHADE</span>
+                  <span class="music-artist">Rex Orange County</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="slide-lead">
+              Saya seorang pelajar cowok berusia 16 tahun yang sedang menempuh pendidikan Kelas 11 di SMA Damai. Bagi saya, masa SMA adalah waktu yang tepat untuk membangun karakter, mengasah kemampuan akademik, menjaga kebugaran lewat olahraga basket, sekaligus menikmati berbagai pengalaman seru termasuk mendengarkan musik favorit dan berburu kuliner seperti nasi goreng.
+            </p>
+
+            <div class="grid-5">
+              <div class="box">
+                <span class="box-label">Nama Lengkap</span>
+                <span class="box-value">Steven Cornelio</span>
+                <span class="box-text">Dipanggil Steven oleh teman dan guru.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Jenis Kelamin</span>
+                <span class="box-value">Laki-laki (Cowok)</span>
+                <span class="box-text">Aktif, sportif, dan senang kegiatan luar ruang.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Umur</span>
+                <span class="box-value">16 Tahun</span>
+                <span class="box-text">Penuh energi dan semangat mencoba hal baru.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Kelas</span>
+                <span class="box-value">Kelas 11</span>
+                <span class="box-text">Fokus belajar & persiapan jenjang berikutnya.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Sekolah</span>
+                <span class="box-value">SMA Damai</span>
+                <span class="box-text">Tempat menimba ilmu dan bertumbuh.</span>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="box">
+                <span class="box-title">Karakter & Nilai yang Dipegang</span>
+                <p class="box-text">
+                  Saya berusaha menjadi pribadi yang jujur, tepat waktu, mau mendengarkan masukan, dan bertanggung jawab atas komitmen yang sudah diambil. Di tim maupun saat kerja kelompok, komunikasi terbuka selalu menjadi kunci.
+                </p>
+                <div class="chip-row">
+                  <span class="chip">Sportif</span>
+                  <span class="chip">Kerja Tim</span>
+                  <span class="chip">Ingin Tahu Tinggi</span>
+                  <span class="chip">Adaptif</span>
+                </div>
+              </div>
+
+              <div class="box">
+                <span class="box-title">Gambaran Singkat Keseharian</span>
+                <p class="box-text">
+                  Hari-hari saya bergerak dinamis: pagi hingga siang fokus mengikuti pelajaran di SMA Damai, sore hari meluangkan waktu untuk gerak badan atau main basket, dan malam harinya bersantai mendengarkan musik sambil menyantap makanan kesukaan.
+                </p>
+                <div class="chip-row">
+                  <span class="chip">Pelajar Cowok SMA Damai</span>
+                  <span class="chip">Hobi Basket</span>
+                  <span class="chip">Pencinta Nasi Goreng</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide-actions">
+              <button class="btn-light" type="button" onclick="goToSlide(1)">Lanjut ke Slide 2: Sekolah & Rutinitas →</button>
+              <button class="btn-ghost" type="button" onclick="showHome()">Menu Home</button>
+            </div>
+          </section>
+
+          <!-- SLIDE 2 -->
+          <section class="slide slide-2">
+            <div class="slide-head">
+              <span class="badge">Slide 2 dari 3 • Pendidikan & Rutinitas</span>
+              <span class="slide-num">02 / 03</span>
+            </div>
+
+            <div>
+              <h2>Perjalanan Belajar di SMA Damai (Kelas 11)</h2>
+              <p class="slide-lead">
+                Sebagai siswa laki-laki Kelas 11 di SMA Damai, saya belajar mengatur ritme antara kewajiban akademik, kegiatan olahraga, dan waktu istirahat agar tetap produktif tanpa mudah kelelahan.
+              </p>
+            </div>
+
+            <div class="grid-3">
+              <div class="box">
+                <span class="box-label">Jenjang Saat Ini</span>
+                <span class="box-value">Kelas 11 • SMA Damai</span>
+                <span class="box-text">Fokus memahami materi pelajaran inti, tugas, serta kerja sama bersama teman sekelas.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Metode Belajar</span>
+                <span class="box-value">Ringkas & Praktis</span>
+                <span class="box-text">Lebih mudah menyerap materi dengan mencatat poin penting, latihan soal, dan berdiskusi.</span>
+              </div>
+              <div class="box">
+                <span class="box-label">Target Akademik</span>
+                <span class="box-value">Konsisten & Tumbuh</span>
+                <span class="box-text">Menjaga nilai tetap stabil sekaligus membangun kebiasaan belajar yang matang menjelang kelas 12.</span>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="box">
+                <span class="box-title">Alur Rutinitas Harian</span>
+                <ul class="timeline-list">
+                  <li><strong>Pagi:</strong> Persiapan ke SMA Damai, sarapan, dan memulai kegiatan belajar dengan energi penuh.</li>
+                  <li><strong>Siang:</strong> Mengikuti kelas, diskusi bersama teman, dan menyelesaikan tugas sekolah.</li>
+                  <li><strong>Sore:</strong> Waktu olahraga basket, peregangan, atau menyegarkan pikiran setelah jam sekolah.</li>
+                  <li><strong>Malam:</strong> Makan malam favorit, mendengarkan musik santai, mengulas catatan pelajaran, dan istirahat.</li>
+                </ul>
+              </div>
+
+              <div class="box">
+                <span class="box-title">Keseimbangan Hidup Pelajar</span>
+                <p class="box-text">
+                  Belajar terus-menerus tanpa jeda bisa membuat cepat jenuh. Karena itu, saya memadukan waktu belajar dengan olahraga basket untuk melepaskan stres dan menikmati lagu-lagu santai untuk mengisi ulang energi.
+                </p>
+                <p class="box-text">
+                  <strong>Catatan Kustomisasi:</strong> Anda dapat mengganti bagian ini dengan jurusan/peminatan, organisasi, atau mata pelajaran favorit Steven di SMA Damai.
+                </p>
+              </div>
+            </div>
+
+            <div class="slide-actions">
+              <button class="btn-light" type="button" onclick="goToSlide(2)">Lanjut ke Slide 3: Basket, Kuliner & Kontak →</button>
+              <button class="btn-ghost" type="button" onclick="goToSlide(0)">← Slide 1</button>
+            </div>
+          </section>
+
+          <!-- SLIDE 3 -->
+          <section class="slide slide-3">
+            <div class="slide-head">
+              <span class="badge">Slide 3 dari 3 • Basket, Kuliner & Kontak</span>
+              <span class="slide-num">03 / 03</span>
+            </div>
+
+            <div>
+              <h2>Hobi Basket, Selera Nasi Goreng & Kontak</h2>
+              <p class="slide-lead">
+                Bagian ini merangkum dua hal paling berkesan di luar jam pelajaran: keseruan bermain basket dan kecintaan pada aneka kuliner, terutama nasi goreng yang selalu jadi comfort food favorit.
+              </p>
+            </div>
+
+            <div class="grid-2">
+              <div class="box">
+                <span class="box-title">Hobi Basket: Semangat & Kekompakan</span>
+                <p class="box-text">
+                  Bermain basket memberikan pengalaman seru karena menuntut kecepatan gerak, akurasi, strategi, dan saling percaya dengan rekan satu tim. Baik saat latihan santai maupun pertandingan persahabatan, basket selalu bikin suasana lebih hidup.
+                </p>
+                <div class="chip-row">
+                  <span class="chip">Basket</span>
+                  <span class="chip">Latihan Stamina</span>
+                  <span class="chip">Teamwork</span>
+                  <span class="chip">Sportivitas</span>
+                </div>
+              </div>
+
+              <div class="box">
+                <span class="box-title">Kuliner Favorit: Juara Nasi Goreng</span>
+                <p class="box-text">
+                  Di dunia kuliner, <strong>nasi goreng</strong> selalu punya tempat spesial. Perpaduan nasi yang pulen, bumbu gurih-manis atau pedas sesuai selera, telur, suwiran ayam/sosis, dan aroma masakan yang menggugah selera membuatnya cocok disantap kapan saja—terutama setelah beraktivitas seharian.
+                </p>
+                <div class="chip-row">
+                  <span class="chip">Nasi Goreng Spesial</span>
+                  <span class="chip">Nasi Goreng Kampung</span>
+                  <span class="chip">Kuliner Malam</span>
+                  <span class="chip">Jajanan Favorit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kolom Pesan / Kontak -->
+            <div class="box">
+              <span class="box-title">Kirim Pesan atau Sapaan untuk Steven</span>
+              <p class="box-text">Punya pertanyaan seputar sekolah, ajakan tanding basket, atau rekomendasi warung nasi goreng enak? Kirim pesan singkat di sini!</p>
+              <form class="msg-form" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan untuk Steven Cornelio telah tercatat.');">
+                <input class="msg-input" type="text" placeholder="Nama Anda..." required />
+                <input class="msg-input" type="text" placeholder="Tulis pesan atau rekomendasi..." required />
+                <button class="primary-btn" type="submit">Kirim Pesan</button>
+              </form>
+            </div>
+
+            <div class="slide-actions">
+              <button class="btn-light" type="button" onclick="showHome()">← Kembali ke Menu Home</button>
+              <button class="btn-ghost" type="button" onclick="goToSlide(1)">← Slide 2</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Tombol Navigasi Panah & Titik Slider -->
+        <button class="arrow prev" type="button" onclick="prevSlide()" aria-label="Slide sebelumnya">&#10094;</button>
+        <button class="arrow next" type="button" onclick="nextSlide()" aria-label="Slide berikutnya">&#10095;</button>
+
+        <div class="dots" role="tablist" aria-label="Indikator slide">
+          <button class="dot active" type="button" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+          <button class="dot" type="button" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+          <button class="dot" type="button" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Skrip JavaScript Interaktif -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    function showHome() {
+      document.getElementById('homeView').classList.remove('hidden');
+      document.getElementById('sliderSection').classList.add('hidden');
+      document.getElementById('navHome').classList.add('active');
+      for (let i = 0; i < totalSlides; i++) {
+        document.getElementById('navSlide' + i).classList.remove('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openSlide(index) {
+      document.getElementById('homeView').classList.add('hidden');
+      document.getElementById('sliderSection').classList.remove('hidden');
+      document.getElementById('navHome').classList.remove('active');
+      
+      for (let i = 0; i < totalSlides; i++) {
+        document.getElementById('navSlide' + i).classList.remove('active');
+      }
+      document.getElementById('navSlide' + index).classList.add('active');
+
+      goToSlide(index);
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      const slidesEl = document.getElementById('slides');
+      slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // Update active tab style
+      for (let i = 0; i < totalSlides; i++) {
+        const tab = document.getElementById('tab' + i);
+        if (tab) {
+          if (i === currentSlide) {
+            tab.classList.add('active');
+          } else {
+            tab.classList.remove('active');
+          }
+        }
+      }
+
+      // Update active dot style
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      goToSlide(currentSlide);
+    }
+  </script>
+</body>
+</html>
